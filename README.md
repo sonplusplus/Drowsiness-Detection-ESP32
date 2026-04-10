@@ -3,8 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange?logo=tensorflow)
 ![TFLite](https://img.shields.io/badge/TFLite-INT8-green)
-![Edge AI](https://img.shields.io/badge/Edge_AI-ESP32--CAM-red)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+![Edge AI](https://img.shields.io/badge/Edge_AI-ESP32--CAM-red)dock
 
 Real-time driver drowsiness detection using PERCLOS algorithm and a custom CNN + SE-block architecture, optimized and exported as INT8 TFLite for deployment on ESP32-CAM embedded devices.
 
@@ -62,7 +61,6 @@ Val accuracy exceeded the **90% target from epoch 5**, demonstrating fast conver
 
 ## Quick Start
 
-### Option 1: Run locally
 
 ```bash
 # Clone repo
@@ -72,25 +70,13 @@ cd drowsiness-detection-esp32
 # Install dependencies
 pip install ai-edge-litert==1.0.1
 
-# Run with TFLite INT8 model (recommended)
-python inference/test.py --tflite models/eye_model_int8.tflite
+# tflite int8 (recommended)
+python test.py --tflite models/eye_model_int8.tflite
 
-# Or run with Keras model
-python inference/test.py --model models/best_model_m1.keras
+#keras model 
+python test.py --model models/best_model_m1.keras
 ```
 
-### Option 2: Docker
-
-```bash
-# Build
-docker build -t drowsiness-esp32 .
-
-# Run (Linux — pass camera device)
-docker run --device=/dev/video0 drowsiness-esp32
-
-# Run (Windows/Mac — use camera index)
-docker run drowsiness-esp32 python inference/test.py --cam 0
-```
 
 ### Keyboard shortcuts while running:
 | Key | Action |
