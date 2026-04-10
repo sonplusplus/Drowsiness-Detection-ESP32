@@ -51,70 +51,11 @@ Val accuracy exceeded the **90% target from epoch 5**, demonstrating fast conver
 
 ## Architecture
 
-```
 ![Architecture](assets/architecture.jpg)
-Input: 32×32 grayscale image (ESP32-CAM stream)
-           │
-     ┌─────▼──────┐
-     │  Conv2D 16  │  Block 1: low-level features
-     │  BN + ReLU  │  (edges, eyelash texture)
-     │  SE-block   │
-     │  MaxPool 2×2│
-     └─────┬───────┘
-           │  16×16
-     ┌─────▼──────┐
-     │  Conv2D 32  │  Block 2: mid-level features
-     │  BN + ReLU  │  (eyelid shape, iris boundary)
-     │  SE-block   │
-     │  MaxPool 2×2│
-     └─────┬───────┘
-           │  8×8
-     ┌─────▼──────┐
-     │  Conv2D 64  │  Block 3: high-level features
-     │  BN + ReLU  │  (open/closed global pattern)
-     │  SE-block   │
-     │  GlobalAvgPool│
-     └─────┬───────┘
-           │
-     ┌─────▼──────┐
-     │  Dense 32   │  Classifier head
-     │  Dropout 0.3│
-     │  Dense 2    │  → [open, closed]
-     └─────────────┘
-
-Total params: 27,442
-INT8 size:    < 200 KB
-```
-
 ---
 
 ##  Real-time Inference Pipeline
-
-```
 ![Real-time Inference Pipeline](assets/pipeline_realtime.jpg)
-<!-- Camera (320×240)
-      │
-  Face Detection (Haar Cascade)
-      │
-  Dual Eye ROI Extraction
-  ┌───┴────────────────┐
-  │ Left Eye  Right Eye│
-  └───┬────────────────┘
-      │
-  Histogram Stretch (IR simulation)
-      │
-  Resize → 32×32 → Normalize
-      │
-  CNN Inference (Keras / TFLite INT8)
-      │
-  PERCLOS Algorithm
-  (sliding window: 30 frames, threshold: 35%)
-      │
-  ┌───▼──────────────────────┐
-  │ ALERT: DROWSY / OK        │
-  └──────────────────────────┘
-``` -->
-
 ---
 
 
@@ -125,7 +66,7 @@ INT8 size:    < 200 KB
 
 ```bash
 # Clone repo
-git clone https://github.com/YOUR_USERNAME/drowsiness-detection-esp32
+git clone https://github.com/sonplusplus/Drowsiness-Detection-ESP32
 cd drowsiness-detection-esp32
 
 # Install dependencies
