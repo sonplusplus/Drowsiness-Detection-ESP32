@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.15-orange?logo=tensorflow)
 ![TFLite](https://img.shields.io/badge/TFLite-INT8-green)
-![Edge AI](https://img.shields.io/badge/Edge_AI-ESP32--CAM-red)dock
+![Edge AI](https://img.shields.io/badge/Edge_AI-ESP32--CAM-red)
 
 Real-time driver drowsiness detection using PERCLOS algorithm and a custom CNN + SE-block architecture, optimized and exported as INT8 TFLite for deployment on ESP32-CAM embedded devices.
 
@@ -40,7 +40,7 @@ Real-time driver drowsiness detection using PERCLOS algorithm and a custom CNN +
 
 ![Training History](assets/training_history_m1.png)
 
-Val accuracy exceeded the **90% target from epoch 5**, demonstrating fast convergence with a lightweight architecture. Val loss consistently lower than train loss indicates strong generalization without overfitting.
+Val accuracy exceeded the 90% target from epoch 5, demonstrating fast convergence with a lightweight architecture. Val loss consistently lower than train loss indicates strong generalization without overfitting.
 
 ### Confusion Matrix
 
